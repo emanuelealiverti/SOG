@@ -1,0 +1,13 @@
+Package: sOG 
+Type: Package
+Title:
+Version: 0.1
+Date: 2018-10-26
+Author: Emanuele Aliverti 
+Maintainer: Emanuele Aliverti <emanuele.aliverti@gmail.com>
+Description: This package is referred to the paper Aliverti, Lum, Johndrow and Dunson (2018). Removing the influence of a group variable in high-dimensional predictive modelling (https://arxiv.org/abs/1810.08255). The purpose is to provide a simple implementation of the methods proposed in Section 2 of the paper.
+License: GPL-2
+Imports: Rcpp (>= 0.12.19)
+Encoding: UTF-8
+LinkingTo: Rcpp, RcppArmadillo
+RoxygenNote: 6.1.0
