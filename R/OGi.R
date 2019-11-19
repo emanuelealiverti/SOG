@@ -10,15 +10,16 @@
 #' }
 #' @details The function performs a matrix decomposition of the input matrix \code{X} with constraints on the left singular vectors and the group variable \code{z}.
 #' The output is a matrix \code{U} of basis and a matrix \code{S} of scores such that \eqn{\tilde X = S * U^T}, where \eqn{\tilde X} is the rank-K approximation of \code{X}
+# This version fix some issue with adding the incercept twice
 #' @references Aliverti, Lum, Johndrow and Dunson (2018). Removing the influence of a group variable in high-dimensional predictive modelling (https://arxiv.org/abs/1810.08255).
 
 
-OG = function(X, z, K = max(2, round(NCOL(X)/10)), rescale = T) {
+OGi = function(X, z, K = max(2, round(NCOL(X)/10)), rescale = T) {
 
 	if(!is.matrix(X)) stop("X must be a matrix")
 	if(rescale) X = scale(X)
 	SVD = svd(X, nu = K, nv = K)
-	temp = lm(SVD$u %*% diag(SVD$d[1:K]) ~ z)
-	S = SVD$u %*% diag(SVD$d[1:K]) - cbind(1,z)%*%temp$coef
+	temp = lm(SVD$u %*% diag(SVD$d[1:K]) ~ -1+z)
+	S = SVD$u %*% diag(SVD$d[1:K]) - z%*%temp$coef
 	return(list(S = S, U = t(SVD$v)))
 }

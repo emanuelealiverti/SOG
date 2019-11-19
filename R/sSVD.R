@@ -15,8 +15,6 @@ sSVD = function(X = warning('X missing'),
   ###################
   # Soft thresholding
   ###################
-  require(Rcpp)
-  sourceCpp("MAIN_FUNCTIONS/softV.cpp")
 
   n = nrow(X)
   p = ncol(X)

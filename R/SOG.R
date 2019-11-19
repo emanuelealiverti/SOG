@@ -20,7 +20,7 @@ control_sOG = function(maxiter = 2e3, tol = .Machine$double.eps^.25, lim_std = 6
 #' @param t_val penalty parameter. Must be a positive number. Control the strength of the l-1 penalty.
 #' @param K approximation rank. The defaul is \code{max(2, round(NCOL(X)/100))}
 #' @param rescaled Should the matrix \code{X} be rescaled? Default is \code{TRUE}.
-#' @param control Control parameters for the fitting process. A list as returned by \code{\link[sOG]{control_sOG}}.
+#' @param control Control parameters for the fitting process. A list as returned by control_sOG.
 #' @return  \itemize{
 #' \item \verb{U} n x K matrix of scores.
 #' \item \verb{S} K x p matrix of sparse loadings
